@@ -2,17 +2,19 @@
     {
       "slug": "rose",
       "name": "rosé 2019",
-      "type": "ros",
+      "category": "rose",
       "image": "./images/Rose.jpg"
     },
     {
       "slug": "delit",
       "name": "Délit 2018",
+      "category": "red",
       "image": "./images/Delit.jpg"
     },
     {
       "slug": "witte",
       "name": "witte 2019",
+      "category": "white",
       "image": "./images/White.png"
     }
   ]
