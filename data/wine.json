@@ -1,0 +1,18 @@
+[
+    {
+      "slug": "rose",
+      "name": "rosé 2019",
+      "type": "ros",
+      "image": "./images/Rose.jpg"
+    },
+    {
+      "slug": "delit",
+      "name": "Délit 2018",
+      "image": "./images/Delit.jpg"
+    },
+    {
+      "slug": "witte",
+      "name": "witte 2019",
+      "image": "./images/White.png"
+    }
+  ]

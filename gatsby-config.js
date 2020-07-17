@@ -6,5 +6,25 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          'Lora',
+        ],
+        display: 'swap'
+      }
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'data',
+        path: './data/'
+      }
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-transformer-json',
+    'gatsby-plugin-sharp'
+  ],
 }
