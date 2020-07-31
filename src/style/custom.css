@@ -1,5 +1,6 @@
 body {
     font-family: Lora,sans-serif;
+    font-size: 15px;
 }
 
 .carousel-caption-middle{
@@ -28,7 +29,6 @@ body {
      margin-top:2.8em;
      margin-right: 35px;
      font-family: Forum;  
-
  }
 
 .aboutUsShort > h1 {
@@ -40,4 +40,65 @@ body {
     margin-top:12px;
     font-family: inherit;
     
+}
+
+.navLinkText{
+    font-family: Lora,sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: rgb(10, 40, 67);;
+}
+
+.navLinkText:hover{
+    color: #d03e3b;
+}
+
+.tasteSpan {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-rendering: optimizeLegibility;
+    list-style: none;
+    visibility: inherit;
+    text-align: center;
+    text-transform: none !important;
+    font-style: inherit;
+    outline: 0;
+    transition: all 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    font-size: 13px !important;
+    line-height: 30px !important;
+    color: #837b78 !important;
+    font-weight: 400 !important;
+    padding: 0px 0px 0px 0px !important;
+    border-radius: 0px 0px 0px 0px !important;
+    background: transparent !important;
+    z-index: 2 !important;
+    font-family: Lora !important;
+    border: none;
+    text-decoration: none;
+}
+
+.tasteSpan + .tasteSpan::before{
+    white-space: pre;
+    content: ", ";
+}
+
+.wineTitle{
+    font-size: 23px !important;
+    line-height: 28px !important;
+    color: #29445b !important;
+    font-weight: 400 !important;
+    padding: 0px 0px 0px 0px !important;
+    border-radius: 0px 0px 0px 0px !important;
+    background: transparent !important;
+    z-index: 2 !important;
+    display: block;
+    font-family: Forum !important;
+    text-transform: capitalize !important;
+}
+
+.categoryButton:hover{
+    color:#d03e3b
 }

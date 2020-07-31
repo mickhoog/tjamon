@@ -12,12 +12,15 @@ import {
 
 
 export default () => (
-  <div style={{ display: "table", margin: "auto" }}>
+  <div style={{paddingTop: "50px", paddingBottom:"50px"}}>
+    <div style={{ display: "table", margin: "auto", minHeight:"100px"}}>
     <img
+      style={{marginBottom:"7px", marginTop:"7px"}}
       className="img-responsive"
-      src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/32877/logo-thing.png"
-      width="200"
+      src="http://luxurywine.themerex.net/wp-content/uploads/2017/01/logo.png"
       alt="Logo Thing main logo"
     />
+    </div>
+
   </div>
 )
