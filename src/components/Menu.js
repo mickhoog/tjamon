@@ -1,6 +1,4 @@
 import React, { Component } from "react"
-import WineListItem from "../components/WineListItem"
-import { Button } from "react-bootstrap"
 import Image from "gatsby-image"
 import Link from "gatsby-link"
 
@@ -21,11 +19,15 @@ export default class Menu extends Component {
       products: props.products.edges,
       wineProducts: props.products.edges,
       categories: getCategories(props.products.edges),
+      selectedCategory: ""
     }
   }
 
   handleProducts = category => {
     let tempProducts = [...this.state.products]
+    this.setState({
+      selectedCategory: category
+    });
     if (category === "all") {
       this.setState(() => {
         return { wineProducts: tempProducts }
@@ -53,7 +55,7 @@ export default class Menu extends Component {
                   return (
                     <span
                       key={index}
-                      className="btn text-capitalize m-3 categoryButton"
+                      className={"btn text-capitalize m-3 categoryButton " + (this.state.selectedCategory == category ? 'selectedCategory' : '')}
                       onClick={() => {
                         this.handleProducts(category)
                       }}

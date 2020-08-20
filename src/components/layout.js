@@ -5,15 +5,10 @@ import Footer from './Footer'
 import background from "../images/background.jpg"
 export default ({children}) =>
 <div>
-    {/* <SEO>TJAMON</SEO> */}
     <Header></Header>
     <Navbar></Navbar>
-    <div style={{ backgroundImage: `url(${background})` }}>
-
-    {children}
+    <div style={{ backgroundImage: `url(${background})`, paddingBottom: "35px"}}>
+        {children}
     </div>
-
     <Footer></Footer>
-{/* 
-    <div className="fixed-bottom">footer here</div> */}
 </div>

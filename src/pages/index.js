@@ -3,6 +3,9 @@ import Layout from "../components/layout"
 import "../style/custom.css"
 import { Container, Row, Col, Carousel } from "react-bootstrap"
 import waangaard from "../images/wijngaard.jpg"
+import cheers from '../images/cheers.jpg'
+import grapes from '../images/grapes.jpg'
+import vinyard from '../images/vinyard.jpg'
 
 //http://luxurywine.themerex.net/
 //https://www.youtube.com/watch?v=mHFAM0CXviE kijk dit verder
@@ -64,7 +67,7 @@ export default () => (
           md="6"
           lg="6"
           xl="4"
-          style={{ height: "380px", backgroundColor:"white" }}
+          style={{  backgroundColor:"white" }}
           className="px-0" >
           <div className="w-100 h-100 mx-auto">
             <div className="aboutUsShort">
@@ -82,10 +85,10 @@ export default () => (
           md="6"
           lg="6"
           xl="4"
-          style={{ border: "1px solid red", height: "380px" }}
+          style={{ height: "380px" }}
           className="px-0 d-none d-md-block"
         >
-          <img className="w-100 h-100 mx-auto" src={waangaard}></img>
+          <img className="w-100 h-100 mx-auto" src={cheers}></img>
         </Col>
         <Col
           xs="12"
@@ -93,7 +96,7 @@ export default () => (
           md={{span: 6}}
           lg="6"
           xl="4"
-          style={{ border: "1px solid green", height: "380px" }}
+          style={{ height: "380px" }}
           className="px-0"
         ><div className="w-100 h-100 mx-auto">
         <div className="aboutUsShort">
@@ -113,10 +116,10 @@ export default () => (
           md={{span: 6}}
           lg="6"
           xl="4"
-          style={{ border: "1px solid blue", height: "380px" }}
+          style={{height: "380px" }}
           className="px-0 d-none d-md-block "
         >
-          <img className="w-100 h-100 mx-auto" src={waangaard}></img>
+          <img className="w-100 h-100 mx-auto" src={vinyard}></img>
         </Col>
         <Col
           xs="12"
@@ -124,7 +127,7 @@ export default () => (
           md="6"
           lg="6"
           xl="4"
-          style={{ border: "1px solid red", height: "380px" }}
+          style={{ height: "380px" }}
           className="px-0"
         ><div className="w-100 h-100 mx-auto">
         <div className="aboutUsShort">
@@ -144,10 +147,10 @@ export default () => (
           md="6"
           lg="6"
           xl="4"
-          style={{ border: "1px solid red", height: "380px" }}
+          style={{height: "380px" }}
           className="px-0 d-none d-md-block"
         >
-          <img className="w-100 h-100 mx-auto" src={waangaard}></img>
+          <img className="w-100 h-100 mx-auto" src={grapes}></img>
         </Col>
       </Row>
     </Container>

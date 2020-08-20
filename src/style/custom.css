@@ -102,3 +102,7 @@ body {
 .categoryButton:hover{
     color:#d03e3b
 }
+
+.selectedCategory{
+    color:#d03e3b
+}
