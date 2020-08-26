@@ -7,7 +7,8 @@ export default ({children}) =>
 <div>
     <Header></Header>
     <Navbar></Navbar>
-    <div style={{ backgroundImage: `url(${background})`, paddingBottom: "35px"}}>
+    <div style={{ backgroundImage: `url(${background})`, minHeight: "450px"}}>
+        <header style={{minHeight: "15px", backgroundColor:"#23262c"}}></header>
         {children}
     </div>
     <Footer></Footer>

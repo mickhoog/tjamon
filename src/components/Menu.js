@@ -1,10 +1,11 @@
 import React, { Component } from "react"
 import Image from "gatsby-image"
 import Link from "gatsby-link"
+import { Button } from "react-bootstrap"
 
 const getCategories = products => {
-  let tempProducts = products.map(products => {
-    return products.node.category
+  let tempProducts = products.map(product => {
+    return product.node.subcategory
   })
   let tempCategories = new Set(tempProducts)
   let categories = Array.from(tempCategories)
@@ -16,9 +17,9 @@ export default class Menu extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      products: props.products.edges,
-      wineProducts: props.products.edges,
-      categories: getCategories(props.products.edges),
+      products: props.products,
+      wineProducts: props.products,
+      categories: getCategories(props.products),
       selectedCategory: ""
     }
   }
@@ -34,7 +35,7 @@ export default class Menu extends Component {
       })
     } else {
       let products = tempProducts.filter(
-        ({ node }) => node.category === category
+         node => node.node.subcategory === category
       )
       this.setState(() => {
         return { wineProducts: products }
@@ -46,47 +47,61 @@ export default class Menu extends Component {
     if (this.state.products.length > 0) {
       //
       return (
-        <section className="menu">
+        <section className="">
           <div className="container">
             {/* categories */}
-            <div className="row mb-5">
+            <div className="row my-3">
               <div className="col-10 mx-auto text-center">
                 {this.state.categories.map((category, index) => {
                   return (
                     <span
                       key={index}
-                      className={"btn text-capitalize m-3 categoryButton " + (this.state.selectedCategory == category ? 'selectedCategory' : '')}
+                      className={"btn text-capitalize m-3 categoryButton " + (this.state.selectedCategory === category ? 'selectedCategory' : '')}
                       onClick={() => {
                         this.handleProducts(category)
                       }}
+                      onKeyDown={() => {
+                        this.handleProducts(category)
+                      }}
+                      // role="link"
+                      role="button" 
+                      aria-pressed="false"
+                      tabIndex={index}
                     >
                       {category}
                     </span>
                   )
                 })}
+                
               </div>
             </div>
+            <hr></hr>
             <div className="row">
               {/* products */}
-              {this.state.wineProducts.map(({ node }) => {
+              {this.state.wineProducts.map( node  => {
                 return (
                   <div
-                    key={node.id}
-                    className="col-12 col-lg-4 col-md-6 col-sm-12 my-3 mx-auto text-center"
+                    key={node.node.id}
+                    className="my-3 mx-auto text-center"
+                    xs="12"
+                    sm="12"
+                    md="12"
+                    lg="6"
+                    xl="4"
                   >
-                    <Link to={node.slug}>
+                    {/* <Link to={node.slug}> */}
                       <div
-                        style={{ backgroundColor: "white", paddingBottom:"15px", paddingTop:"15px" }}
+                        style={{ backgroundColor: "white", paddingBottom:"15px", paddingTop:"15px", width:"265px" }}
                         className="text-center"
                       >
                         <Image
                           className="img-fluid"
-                          fixed={node.image.childImageSharp.fixed}
+                          fixed={node.node.image.childImageSharp.fixed}
                         />
                         <div>
-                          {node.taste.map((value, index) => {
+                          {node.node.subtitle.map((value, index) => {
                             return (
-                              <span className="tasteSpan text-capitalize" key={index}>
+                              <span className="subTitleSpanMenu text-capitalize" key={index}>
                                 {value}
                               </span>
                             )
@@ -94,11 +109,16 @@ export default class Menu extends Component {
                         </div>
                         <div>
                           <p className="wineTitle">
-                            {node.name}
+                            {node.node.name}
                           </p>
                         </div>
+                        <div>
+                        <Link to={node.node.slug}>
+                          <Button variant="outline-dark">Details</Button>
+                          </Link>
+                          </div>
                       </div>
-                    </Link>
+                    {/* </Link> */}
                   </div>
                 )
               })}
@@ -108,11 +128,12 @@ export default class Menu extends Component {
       )
     } else {
       return (
-        <section className="menu py-5">
+        <section className="menu py-5" style={{minHeight:"375px"}}>
           <div className="container">
             <div className="row">
-              <div className="col-10 col-sm-6 mx-auto text-center text-capitalize">
-                <h1>We are all out of wine :o..</h1>
+              <div className="col-10 col-sm-6 mx-auto text-center">
+                <h1>No products found.</h1>
+                <h2>Click <Link to="/">Here</Link> to return to the home page</h2>
               </div>
             </div>
           </div>

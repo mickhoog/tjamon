@@ -16,19 +16,21 @@ body {
     top:15%;
 }
 
-.carousel-inner > .carousel-item {
-    max-height: 600px;
+/* .carousel-inner > .carousel-item {
+    max-height: 550px;
     height:100%;
  }
 
- /* h6 {
-    font-family: Forum,cursive;
- } */
+ .carousel-inner > .carousel-item > img{ 
+    /* transform: translateY(-20%); */
+ /* } */
+
 
 .aboutUsShort{
      margin-top:2.8em;
      margin-right: 35px;
-     font-family: Forum;  
+     font-family: Lora,sans-serif;
+     margin-left: 15px;
  }
 
 .aboutUsShort > h1 {
@@ -39,7 +41,7 @@ body {
 .aboutUsShort > p {
     margin-top:12px;
     font-family: inherit;
-    
+    font-size: 106.66%;
 }
 
 .navLinkText{
@@ -47,16 +49,16 @@ body {
     font-weight: 600;
     font-style: normal;
     text-decoration: none;
-    text-transform: uppercase;
+    text-transform: uppercase !important;
     letter-spacing: 0.04em;
-    color: rgb(10, 40, 67);;
+    color: rgb(10, 40, 67) !important
 }
 
 .navLinkText:hover{
-    color: #d03e3b;
+    color: #d03e3b !important;
 }
 
-.tasteSpan {
+.subTitleSpanMenu {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     text-rendering: optimizeLegibility;
     list-style: none;
@@ -80,7 +82,7 @@ body {
     text-decoration: none;
 }
 
-.tasteSpan + .tasteSpan::before{
+.subTitleSpanMenu + .subTitleSpanMenu::before, .subTitleSpan + .subTitleSpan::before{
     white-space: pre;
     content: ", ";
 }
@@ -105,4 +107,12 @@ body {
 
 .selectedCategory{
     color:#d03e3b
+}
+
+.active{
+    color: #d03e3b !important
+}
+
+.btn:focus, .btn.focus{
+    box-shadow: 0;
 }

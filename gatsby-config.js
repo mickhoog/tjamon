@@ -6,6 +6,7 @@
 
 module.exports = {
   /* Your site config here */
+  pathPrefix: "/tjamon",
   plugins: [
     {
       resolve: `gatsby-plugin-google-fonts`,

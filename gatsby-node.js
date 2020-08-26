@@ -1,32 +1,52 @@
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
   const data = await graphql(
     `
-      {
-        allWineJson {
-          edges {
-            node {
-              slug
-            }
-          }
+    {
+      allCategoriesJson {
+        nodes {
+          categoryId
+          categoryName
         }
       }
-    `)
+    }
+    `)  
+  
+  const categoryTemplate = require.resolve('./src/templates/CategoryPage.js')
+  const productTemplate = require.resolve('./src/templates/ProductPage.js')
 
     if(data.error) {
         console.log('Error retrieving data', data.errors)
         return
     }
 
-    const wineTemplate = require.resolve('./src/templates/WinePage.js')
-
-    data.data.allWineJson.edges.forEach(edge => {
-        createPage({
-            path: `/wine/${edge.node.slug}`,
-            component: wineTemplate,
-            context: {
-                slug: edge.node.slug
+    await Promise.all(data.data.allCategoriesJson.nodes.map(async (node)=>{
+      createPage({
+          path: `/${node.categoryName}`,
+          component: categoryTemplate,
+          context: {
+            categoryId: node.categoryId
+          }      
+      });
+        const productsQuery = await graphql(
+            `
+            {
+              allProductsJson(filter: {categoryId: {eq: ${node.categoryId}}}) {
+                nodes {
+                  name
+                  categoryId
+                  slug
+                }
+              }
             }
-        })
-    })
-
+            `)  
+          productsQuery.data.allProductsJson.nodes.forEach(element => {
+            createPage({
+              path: `/${node.categoryName}/${element.slug}`,
+              component: productTemplate,
+              context: {
+                  slug: element.slug
+              }
+            })
+          });
+    }))
 }

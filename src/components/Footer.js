@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Carousel } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 const Footer = () => (
     <footer className="sticky-bottom" style={{backgroundColor:"#23262c"}}>
       <Container className="py-5">
@@ -15,7 +15,9 @@ const Footer = () => (
           sm="12"
           md="6"
           lg="6"
-          xl="6">
+          xl="6"
+          className="text-right"
+          >
             <div><h2 style={{color:"white"}}>Contact</h2></div>
             <ul style={{color:"white", listStyleType:"none", paddingLeft:"0"}}>
               <li>Email: email@tjamon.nl</li>

@@ -1,0 +1,10 @@
+[
+	{
+        "categoryName": "wine",
+        "categoryId": 1
+    },
+    {
+        "categoryName": "rice",
+        "categoryId": 2
+    }	
+]
